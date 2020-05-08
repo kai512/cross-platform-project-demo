@@ -66,7 +66,7 @@ var _postJson = function(params) {
 	var ajaxParams = underscore.deepExtend(defaultParams, params)
 	
 	// #ifdef H5
-	const baseUrl = process.env.NODE_ENV === 'development' ? config.serviceBaseUrl.dev : config.serviceBaseUrl.pro
+	const baseUrl = config.serviceBaseUrl.base
 	// #endif
 	
 	// #ifndef H5
