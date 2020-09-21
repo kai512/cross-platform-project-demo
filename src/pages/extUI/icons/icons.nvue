@@ -1,0 +1,576 @@
+<template>
+	<view class="page">
+		<view class="example-info">
+			<text class="example-info-text">图标组件方便用户在设计页面的时候，减少小图片的使用。可方便自定义图标单色、尺寸</text>
+		</view>
+		<lw-section title="基础图标" type="line">
+			<view class="lw-right">
+				<text class="lw-right-text">显示{{ checked?' lwcode':'图标名' }}</text>
+				<switch :checked="checked" class="switch" @change="change" />
+			</view>
+		</lw-section>
+		<view class="example-body">
+			<view v-for="(item,index) in iconClassList" :key="index" class="icon-item" @click="switchActive(index)">
+				<lw-icons :type="item.name" :color="activeIndex === index?'#007aff':'#8f8f94'" size="25" />
+				<text :style="{color:activeIndex === index?'#007aff':'#8f8f94'}" class="icon-item-text">{{ checked? item.lwcode: item.name }}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import { lwSection, lwIcons } from 'linewell-ui'
+	export default {
+		components: { lwSection, lwIcons },
+		data() {
+			return {
+				iconClassList: [{
+					"name": "arrowdown",
+					"lwcode": "e581"
+				}, {
+					"name": "arrowleft",
+					"lwcode": "e582"
+				}, {
+					"name": "arrowright",
+					"lwcode": "e583"
+				}, {
+					"name": "arrowup",
+					"lwcode": "e580"
+				}, {
+					"name": "arrowthindown",
+					"lwcode": "e585"
+				}, {
+					"name": "arrowthinleft",
+					"lwcode": "e586"
+				}, {
+					"name": "arrowthinright",
+					"lwcode": "e587"
+				}, {
+					"name": "arrowthinup",
+					"lwcode": "e584"
+				}, {
+					"name": "back",
+					"lwcode": "e471"
+				}, {
+					"name": "forward",
+					"lwcode": "e470"
+				}, {
+					"name": "camera",
+					"lwcode": "e301"
+				}, {
+					"name": "camera-filled",
+					"lwcode": "e7ef"
+				}, {
+					"name": "cart",
+					"lwcode": "e7f5"
+				}, {
+					"name": "cart-filled",
+					"lwcode": "e7f4"
+				}, {
+					"name": "chat",
+					"lwcode": "e263"
+				}, {
+					"name": "chat-filled",
+					"lwcode": "e847"
+				}, {
+					"name": "chatboxes",
+					"lwcode": "e203"
+				}, {
+					"name": "chatboxes-filled",
+					"lwcode": "e233"
+				}, {
+					"name": "chatbubble",
+					"lwcode": "e202"
+				}, {
+					"name": "chatbubble-filled",
+					"lwcode": "e232"
+				}, {
+					"name": "checkbox",
+					"lwcode": "e7fa"
+				}, {
+					"name": "checkbox-filled",
+					"lwcode": "e442"
+				}, {
+					"name": "close",
+					"lwcode": "e404"
+				}, {
+					"name": "clear",
+					"lwcode": "e434"
+				}, {
+					"name": "circle",
+					"lwcode": "e411"
+				}, {
+					"name": "circle-filled",
+					"lwcode": "e441"
+				}, {
+					"name": "checkmarkempty",
+					"lwcode": "e472"
+				}, {
+					"name": "closeempty",
+					"lwcode": "e460"
+				}, {
+					"name": "cloud-download",
+					"lwcode": "e8e4"
+				}, {
+					"name": "cloud-download-filled",
+					"lwcode": "e8e9"
+				}, {
+					"name": "cloud-upload",
+					"lwcode": "e8e6"
+				}, {
+					"name": "cloud-upload-filled",
+					"lwcode": "e8e5"
+				}, {
+					"name": "contact",
+					"lwcode": "e100"
+				}, {
+					"name": "contact-filled",
+					"lwcode": "e130"
+				}, {
+					"name": "download",
+					"lwcode": "e403"
+				}, {
+					"name": "download-filled",
+					"lwcode": "e8a4"
+				}, {
+					"name": "email",
+					"lwcode": "e201"
+				}, {
+					"name": "email-filled",
+					"lwcode": "e231"
+				}, {
+					"name": "mail-open",
+					"lwcode": "e84e"
+				}, {
+					"name": "mail-open-filled",
+					"lwcode": "e84d"
+				}, {
+					"name": "eye",
+					"lwcode": "e824"
+				}, {
+					"name": "eye-filled",
+					"lwcode": "e568"
+				}, {
+					"name": "eye-slash",
+					"lwcode": "e823"
+				}, {
+					"name": "eye-slash-filled",
+					"lwcode": "e822"
+				}, {
+					"name": "hand-thumbsdown",
+					"lwcode": "e83c"
+				}, {
+					"name": "hand-thumbsdown-filled",
+					"lwcode": "e83b"
+				}, {
+					"name": "hand-thumbsup",
+					"lwcode": "e83f"
+				}, {
+					"name": "hand-thumbsup-filled",
+					"lwcode": "e83d"
+				}, {
+					"name": "gear",
+					"lwcode": "e502"
+				}, {
+					"name": "gear-filled",
+					"lwcode": "e532"
+				}, {
+					"name": "flag",
+					"lwcode": "e508"
+				}, {
+					"name": "flag-filled",
+					"lwcode": "e825"
+				}, {
+					"name": "heart",
+					"lwcode": "e840"
+				}, {
+					"name": "heart-filled",
+					"lwcode": "e83e"
+				}, {
+					"name": "help",
+					"lwcode": "e505"
+				}, {
+					"name": "help-filled",
+					"lwcode": "e535"
+				}, {
+					"name": "image",
+					"lwcode": "e363"
+				}, {
+					"name": "image-filled",
+					"lwcode": "e877"
+				}, {
+					"name": "images",
+					"lwcode": "e87b"
+				}, {
+					"name": "images-filled",
+					"lwcode": "e87a"
+				}, {
+					"name": "home",
+					"lwcode": "e500"
+				}, {
+					"name": "home-filled",
+					"lwcode": "e530"
+				}, {
+					"name": "info",
+					"lwcode": "e504"
+				}, {
+					"name": "info-filled",
+					"lwcode": "e534"
+				}, {
+					"name": "location",
+					"lwcode": "e303"
+				}, {
+					"name": "location-filled",
+					"lwcode": "e333"
+				}, {
+					"name": "locked",
+					"lwcode": "e506"
+				}, {
+					"name": "locked-filled",
+					"lwcode": "e856"
+				}, {
+					"name": "map",
+					"lwcode": "e364"
+				}, {
+					"name": "map-filled",
+					"lwcode": "e85c"
+				}, {
+					"name": "map-pin",
+					"lwcode": "e85e"
+				}, {
+					"name": "map-pin-ellipse",
+					"lwcode": "e864"
+				}, {
+					"name": "mic",
+					"lwcode": "e302"
+				}, {
+					"name": "mic-filled",
+					"lwcode": "e332"
+				}, {
+					"name": "micoff",
+					"lwcode": "e360"
+				}, {
+					"name": "mic-slash-filled",
+					"lwcode": "e892"
+				}, {
+					"name": "minus",
+					"lwcode": "e410"
+				}, {
+					"name": "minus-filled",
+					"lwcode": "e440"
+				}, {
+					"name": "more",
+					"lwcode": "e507"
+				}, {
+					"name": "more-filled",
+					"lwcode": "e537"
+				}, {
+					"name": "navigate",
+					"lwcode": "e501"
+				}, {
+					"name": "navigate-filled",
+					"lwcode": "e884"
+				}, {
+					"name": "paperplane",
+					"lwcode": "e503"
+				}, {
+					"name": "paperplane-filled",
+					"lwcode": "e86e"
+				}, {
+					"name": "person",
+					"lwcode": "e101"
+				}, {
+					"name": "person-filled",
+					"lwcode": "e131"
+				}, {
+					"name": "personadd",
+					"lwcode": "e102"
+				}, {
+					"name": "personadd-filled",
+					"lwcode": "e132"
+				}, {
+					"name": "phone",
+					"lwcode": "e200"
+				}, {
+					"name": "phone-filled",
+					"lwcode": "e230"
+				}, {
+					"name": "plus",
+					"lwcode": "e409"
+				}, {
+					"name": "plus-filled",
+					"lwcode": "e439"
+				}, {
+					"name": "redo",
+					"lwcode": "e405"
+				}, {
+					"name": "redo-filled",
+					"lwcode": "e7d9"
+				}, {
+					"name": "undo",
+					"lwcode": "e406"
+				}, {
+					"name": "undo-filled",
+					"lwcode": "e7d6"
+				}, {
+					"name": "qq",
+					"lwcode": "e264"
+				}, {
+					"name": "weibo",
+					"lwcode": "e260"
+				}, {
+					"name": "weixin",
+					"lwcode": "e261"
+				}, {
+					"name": "pengyouquan",
+					"lwcode": "e262"
+				}, {
+					"name": "refresh",
+					"lwcode": "e407"
+				}, {
+					"name": "refresh-filled",
+					"lwcode": "e437"
+				}, {
+					"name": "refreshempty",
+					"lwcode": "e461"
+				}, {
+					"name": "reload",
+					"lwcode": "e462"
+				}, {
+					"name": "upload",
+					"lwcode": "e402"
+				}, {
+					"name": "upload-filled",
+					"lwcode": "e8b1"
+				}, {
+					"name": "smallcircle",
+					"lwcode": "e868"
+				}, {
+					"name": "smallcircle-filled",
+					"lwcode": "e801"
+				}, {
+					"name": "sound",
+					"lwcode": "e590"
+				}, {
+					"name": "sound-filled",
+					"lwcode": "e8a1"
+				}, {
+					"name": "trash",
+					"lwcode": "e401"
+				}, {
+					"name": "trash-filled",
+					"lwcode": "e8dc"
+				}, {
+					"name": "videocam",
+					"lwcode": "e300"
+				}, {
+					"name": "videocam-filled",
+					"lwcode": "e8af"
+				}, {
+					"name": "star",
+					"lwcode": "e408"
+				}, {
+					"name": "star-filled",
+					"lwcode": "e438"
+				}, {
+					"name": "starhalf",
+					"lwcode": "e463"
+				}, {
+					"name": "spinner-cycle",
+					"lwcode": "e465"
+				}, {
+					"name": "scan",
+					"lwcode": "e612"
+				}, {
+					"name": "search",
+					"lwcode": "e466"
+				}, {
+					"name": "settings",
+					"lwcode": "e560"
+				}, {
+					"name": "compose",
+					"lwcode": "e400"
+				}, {
+					"name": "bars",
+					"lwcode": "e563"
+				}, {
+					"name": "list",
+					"lwcode": "e562"
+				}, {
+					"name": "loop",
+					"lwcode": "e565"
+				}, {
+					"name": "paperclip",
+					"lwcode": "e567"
+				}, {
+					"name": "plusempty",
+					"lwcode": "e468"
+				}, {
+					"name": "pulldown",
+					"lwcode": "e588"
+				}, {
+					"name": "headphones",
+					"lwcode": "e8bf"
+				}, {
+					"name": "shop",
+					"shop": "e609"
+				}],
+				activeIndex: -1,
+				checked: false
+			}
+		},
+		methods: {
+			change(e) {
+				// e.detail.value在安卓手机上可能是String类型，后续修复后要修改
+				this.checked = e.detail.value === 'false' || !e.detail.value ? false : true
+			},
+			switchActive(index) {
+				this.activeIndex = index
+			}
+		}
+	}
+</script>
+
+<style>
+	/* 头条小程序组件内不能引入字体 */
+	/* #ifdef MP-TOUTIAO */
+	@font-face {
+		font-family: uniicons;
+		font-weight: normal;
+		font-style: normal;
+		src: url('~@/static/lw.ttf') format('truetype');
+	}
+
+	/* #endif */
+
+	/* #ifndef APP-NVUE */
+	page {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		background-color: #efeff4;
+		min-height: 100%;
+		height: auto;
+	}
+
+	view {
+		font-size: 14px;
+		line-height: inherit;
+	}
+
+	.example {
+		padding: 0 15px 15px;
+	}
+
+	.example-info {
+		padding: 15px;
+		color: #3b4144;
+		background: #ffffff;
+	}
+
+	.example-body {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 0;
+		font-size: 14px;
+		background-color: #ffffff;
+	}
+
+	/* #endif */
+	.example {
+		padding: 0 15px;
+	}
+
+	.example-info {
+		/* #ifndef APP-NVUE */
+		display: block;
+		/* #endif */
+		padding: 15px;
+		color: #3b4144;
+		background-color: #ffffff;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.example-info-text {
+		font-size: 14px;
+		line-height: 20px;
+		color: #3b4144;
+	}
+
+
+	.example-body {
+		flex-direction: column;
+		padding: 15px;
+		background-color: #ffffff;
+	}
+
+	.word-btn-white {
+		font-size: 18px;
+		color: #FFFFFF;
+	}
+
+	.word-btn {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		border-radius: 6px;
+		height: 48px;
+		margin: 15px;
+		background-color: #007AFF;
+	}
+
+	.word-btn--hover {
+		background-color: #4ca2ff;
+	}
+
+
+	.example-body {
+		padding: 0;
+		flex-direction: row;
+		flex-wrap: wrap;
+		/* align-items: center;
+ */
+		/* justify-content: center;
+ */
+	}
+
+	.lw-right {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		color: #666;
+	}
+
+	.lw-right-text {
+		font-size: 28rpx;
+	}
+
+	.switch {
+		transform: scale(0.8);
+		margin-left: 5px;
+	}
+
+	.icon-item {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		box-sizing: border-box;
+		/* #endif */
+		width: 180rpx;
+		padding: 30rpx 10rpx;
+		text-align: center;
+		flex-direction: column;
+	}
+
+	.icon-item-text {
+		font-size: 24rpx;
+		text-align: center;
+	}
+</style>

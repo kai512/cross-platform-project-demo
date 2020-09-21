@@ -1,4 +1,4 @@
-# my-uniapp
+# mini-app-cli-demo
 
 ## Project setup
 ```

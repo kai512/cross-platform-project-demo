@@ -18,7 +18,7 @@ export default {
 	 */
 	serviceBaseUrl: {
 		baseUrl : "'https://www.example.com",
-		base : rocess.env.NODE_ENV === 'development' ? '/rest' : '/rest' 
+		base : process.env.NODE_ENV === 'development' ? '/rest' : '/rest' 
 	},
 
 	/**
