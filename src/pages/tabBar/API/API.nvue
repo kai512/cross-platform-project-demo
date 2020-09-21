@@ -8,9 +8,9 @@
                 <image class="lw-header-image" src="/static/apiIndex.png"></image>
             </view>
             <view class="lw-hello-text">
-                <text class="hello-text">以下将演示lw-app接口能力，详细文档见：</text>
-                <lw-link class="hello-link" :href="'https://uniapp.dcloud.io/api/'" :text="'https://uniapp.dcloud.io/api/'"
-                    :inWhiteList="true"></lw-link>
+                <text class="hello-text">以下将演示lw-app接口能力</text>
+                <!--<lw-link class="hello-link" :href="'https://uniapp.dcloud.io/api/'" :text="'https://uniapp.dcloud.io/api/'"
+                    :inWhiteList="true"></lw-link>-->
             </view>
             <view class="lw-panel" v-for="(item, index) in list" :key="item.id">
                 <view class="lw-panel-h" :class="item.open ? 'lw-panel-h-on' : ''" @click="triggerCollapse(index)">
