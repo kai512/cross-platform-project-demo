@@ -14,7 +14,6 @@
 </template>
 
 <script>
-	let platform = this.$lw.getSystemInfoSync().platform
 	export default {
 		data() {
 			return {
@@ -22,6 +21,7 @@
 				connecting: false,
 				socketTask: false,
 				msg: false,
+				platform: this.$lw.getSystemInfoSync().platform
 			}
 		},
 		computed: {
@@ -114,7 +114,7 @@
 			},
 			send() {
 				this.socketTask.send({
-					data: 'from ' + platform + ' : ' + parseInt(Math.random() * 10000).toString(),
+					data: 'from ' + this.platform + ' : ' + parseInt(Math.random() * 10000).toString(),
 					success(res) {
 						console.log(res);
 					},

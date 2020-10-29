@@ -5,8 +5,8 @@
         </view>
         <view class="lw-hello-text">
             <text class="hello-text">lw-app内置组件，展示样式仅供参考</text>
-            <!--<lw-link class="hello-link" :href="'https://uniapp.dcloud.io/component/'" :text="'https://uniapp.dcloud.io/component/'"
-                :inWhiteList="true"></lw-link>-->
+           <!-- <lw-link class="hello-link" :href="'https://uniapp.dcloud.io/component/'" :text="'https://uniapp.dcloud.io/component/'"
+                :inWhiteList="true"></lw-link> -->
         </view>
         <view class="lw-panel" v-for="(item, index) in list" :key="item.id">
             <view class="lw-panel-h" :class="item.open ? 'lw-panel-h-on' : ''" @click="triggerCollapse(index)">
@@ -74,13 +74,14 @@
                         name: '导航',
                         open: false,
                         pages: ['navigator']
-                    }, {
+                    }, 
+					{
                         id: 'media',
                         name: '媒体组件',
                         open: false,
                         pages: [
                             'image',
-                            'video',
+                            // 'video',
                             // #ifndef MP-ALIPAY || MP-TOUTIAO
                             'audio',
                             // #endif

@@ -9,8 +9,8 @@
             </view>
             <view class="lw-hello-text">
                 <text class="hello-text">以下将演示lw-app接口能力</text>
-                <!--<lw-link class="hello-link" :href="'https://uniapp.dcloud.io/api/'" :text="'https://uniapp.dcloud.io/api/'"
-                    :inWhiteList="true"></lw-link>-->
+               <!-- <lw-link class="hello-link" :href="'https://uniapp.dcloud.io/api/'" :text="'https://uniapp.dcloud.io/api/'"
+                    :inWhiteList="true"></lw-link> -->
             </view>
             <view class="lw-panel" v-for="(item, index) in list" :key="item.id">
                 <view class="lw-panel-h" :class="item.open ? 'lw-panel-h-on' : ''" @click="triggerCollapse(index)">
@@ -56,10 +56,10 @@
                 },
                 // #endif
                 // #ifndef MP-ALIPAY
-                {
-                    name: '视频',
-                    url: 'video'
-                },
+                // {
+                //     name: '视频',
+                //     url: 'video'
+                // },
                 // #endif
                 // #ifndef H5
                 {
@@ -427,16 +427,11 @@
                 }
                 let url = ~e.indexOf('platform') ? e : '/pages/API/' + e + '/' + e;
 				
-				// #ifdef APP-PLUS
 				this.$lw.navigateTo({
 				    url: url
 				});
-				// #endif
-               // #ifndef APP-PLUS
-				uni.navigateTo({
-                   url: url
-               });
-               // #endif
+			
+              
             },
             leaveSetTabBarPage() {
                 setTimeout(() => {

@@ -11,6 +11,13 @@ import pageHead from './components/page-head.vue'
 App.mpType = 'app'
 import lw from "linewell-api"
 Vue.component('page-head', pageHead)
+
+Vue.prototype.$backgroundAudioData = {
+	playing: false,
+	playTime: 0,
+	formatedPlayTime: '00:00:00'
+}
+
 const app = new Vue({
 	store,
 	...App

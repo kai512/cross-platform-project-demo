@@ -108,7 +108,7 @@
 				this.countIndex = e.target.value;
 			},
 			chooseImage: async function() {
-					if (this.imageList.length === 9) {
+					if (this.imageList.length === this.count[this.countIndex]) {
 						let isContinue = await this.isFullImg();
 						console.log("是否继续?", isContinue);
 						if (!isContinue) {
@@ -127,7 +127,7 @@
 				isFullImg: function() {
 					return new Promise((res) => {
 						this.$lw.showModal({
-							content: "已经有9张图片了,是否清空现有图片？",
+							content: "已经有" + this.count[this.countIndex] + "张图片了,是否清空现有图片？",
 							success: (e) => {
 								if (e.confirm) {
 									this.imageList = [];

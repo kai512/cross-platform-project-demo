@@ -45,17 +45,18 @@
                 this.phone = e.detail.value
             },
             add() {
+				let that = this;
                 this.$lw.addPhoneContact({
                     firstName: this.name,
                     mobilePhoneNumber: this.phone,
                     success: function() {
-                        this.$lw.showModal({
+                        that.$lw.showModal({
                         	content:'已成功添加联系人！',
                             showCancel:false
                         })
                     },
                     fail: function() {
-                        this.$lw.showModal({
+                        that.$lw.showModal({
                         	content:'添加联系人失败！',
                             showCancel:false
                         })

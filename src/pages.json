@@ -197,12 +197,12 @@
 			}
 		},
 		// #ifndef MP-ALIPAY
-		{
-			"path": "pages/component/video/video",
-			"style": {
-				"navigationBarTitleText": "video"
-			}
-		},
+		// {
+		// 	"path": "pages/component/video/video",
+		// 	"style": {
+		// 		"navigationBarTitleText": "video"
+		// 	}
+		// },
 		// #endif
 		// #ifndef MP-ALIPAY || MP-TOUTIAO
 		{
@@ -232,6 +232,14 @@
 				"navigationBarTitleText": "web-view"
 			}
 		},
+		// #ifndef H5 || MP-BAIDU || QUICKAPP-WEBVIEW
+		{
+			"path": "pages/component/ad/ad",
+			"style": {
+				"navigationBarTitleText": "AD"
+			}
+		},
+		// #endif
 		// #ifdef APP-PLUS || H5
 		{
 			"path": "pages/component/web-view-local/web-view-local",
@@ -529,12 +537,12 @@
 						"navigationBarTitleText": "背景音频"
 					}
 				},
-				{
-					"path": "video/video",
-					"style": {
-						"navigationBarTitleText": "视频"
-					}
-				},
+				// {
+				// 	"path": "video/video",
+				// 	"style": {
+				// 		"navigationBarTitleText": "视频"
+				// 	}
+				// },
 				{
 					"path": "file/file",
 					"style": {
@@ -892,9 +900,9 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {

@@ -17,6 +17,7 @@
 	</view>
 </template>
 <script>
+	import {startCompass} from "linewell-api";
 	export default {
 		data() {
 			return {
@@ -31,8 +32,11 @@
 			})
 		},
 		onUnload() {
-			this.$lw.startCompass();
+			// 支付宝不支持此方法
+			// #ifndef MP-ALIPAY  
+			startCompass();
 			this.direction = 0;
+			// #endif
 		}
 	}
 </script>

@@ -14,14 +14,14 @@
 </template>
 
 <script>
-	let platform = this.$lw.getSystemInfoSync().platform
 	export default {
 		data() {
 			return {
 				connected: false,
 				connecting: false,
 				msg: false,
-				roomId: ''
+				roomId: '',
+				platform : this.$lw.getSystemInfoSync().platform
 			}
 		},
 		computed: {
@@ -109,7 +109,7 @@
 			},
 			send() {
 				this.$lw.sendSocketMessage({
-					data: 'from ' + platform + ' : ' + parseInt(Math.random() * 10000).toString(),
+					data: 'from ' + this.platform + ' : ' + parseInt(Math.random() * 10000).toString(),
 					success(res) {
 						console.log(res);
 					},
