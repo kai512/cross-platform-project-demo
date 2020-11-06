@@ -23,7 +23,13 @@ const app = new Vue({
 	...App
 })
 
+//#ifdef APP-PLUS
+Vue.use(lw, true)
+// #endif
+
+//#ifndef APP-PLUS
 Vue.use(lw)
+// #endif
 // Vue.component('lw', lw)
 
 app.$mount(); //为了兼容小程序及app端必须这样写才有效果

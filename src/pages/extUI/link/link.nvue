@@ -3,11 +3,11 @@
 		<text class="example-info">超链接组件，在小程序内复制url，在app内打开外部浏览器，在h5端打开新网页。</text>
 		<lw-section title="基本示例" type="line"></lw-section>
 		<view class="example-body">
-			<lw-link href="https://uniapp.dcloud.io/" text="https://uniapp.dcloud.io/"></lw-link>
+			<lw-link href="https://www.baidu.com" text="https://www.baidu.com"></lw-link>
 		</view>
 		<lw-section title="自定义样式" type="line"></lw-section>
 		<view class="example-body">
-			<lw-link href="https://uniapp.dcloud.io/" text="https://uniapp.dcloud.io/" showUnderLine="false" color="#0000FF"></lw-link>
+			<lw-link href="https://www.baidu.com" text="https://www.baidu.com" showUnderLine="false" color="#0000FF"></lw-link>
 		</view>
 	</view>
 </template>

@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ //pages数组中第一项表示应用启动页
 		{
 			"path": "pages/tabBar/component/component",
 			"style": {
@@ -10,7 +10,7 @@
 							"text": "\ue534",
 							"fontSrc": "/static/lw.ttf",
 							"fontSize": "22px",
-							"color": "#999999"
+							"color": "#FFFFFF"
 						}]
 					}
 				}
@@ -26,7 +26,7 @@
 							"text": "\ue534",
 							"fontSrc": "/static/lw.ttf",
 							"fontSize": "22px",
-							"color": "#999999"
+							"color": "#FFFFFF"
 						}]
 					}
 				}
@@ -42,7 +42,7 @@
 							"text": "\ue534",
 							"fontSrc": "/static/lw.ttf",
 							"fontSize": "22px",
-							"color": "#999999"
+							"color": "#FFFFFF"
 						}]
 					}
 				}
@@ -342,6 +342,24 @@
 					"path": "get-user-info/get-user-info",
 					"style": {
 						"navigationBarTitleText": "获取用户信息"
+					}
+				},
+				{
+					"path": "get-user-info-mini/get-user-info-mini",
+					"style": {
+						"navigationBarTitleText": "获取城市通用户信息"
+					}
+				},
+				{
+					"path": "login-private-mini/login-private-mini",
+					"style": {
+						"navigationBarTitleText": "城市通内部登录"
+					}
+				},
+				{
+					"path": "login-mini/login-mini",
+					"style": {
+						"navigationBarTitleText": "城市通登录"
 					}
 				},
 				{
