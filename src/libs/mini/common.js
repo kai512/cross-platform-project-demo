@@ -1,6 +1,6 @@
 /**
  * 所有页面公用脚本
- * @author 	cyixiang@linewell.com
+ * @author 	cyixiang
  * @since	2018-06-27
  */
 var utils = require("./utils.js");
