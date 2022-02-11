@@ -62,7 +62,7 @@
     "js-cookie": "^2.2.1",
     "linewell-api": "^1.0.1",
     "linewell-ui": "^1.1.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "object-assign": "^4.1.0",
     "regenerator-runtime": "^0.12.1",
     "sass-loader": "^8.0.2",
